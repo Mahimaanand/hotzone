@@ -81,17 +81,11 @@ WSGI_APPLICATION = 'hotzone.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
- 'default': {
- 'ENGINE': 'django.db.backends.postgresql',
- 'NAME': 'hotzone_database',
- 'USER': 'admin',
- 'PASSWORD': 'password',
- 'HOST': 'localhost',
- 'PORT': '',
+ 
  'default': env.dj_db_url('DATABASE_URL')
 
  }
-}
+
 
 
 
