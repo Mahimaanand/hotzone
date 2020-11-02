@@ -1,0 +1,56 @@
+{% load static %}
+<html>
+    <body>
+        <head>
+            <link rel="stylesheet" type="text/css" href="{% static 'query/style.css' %}">
+        </head>
+        <div class="container">
+            <div>
+                <div class="header"><h1>HotZone</h1></div>
+                <form action = "/inquiry" method="GET">
+                <input class="inquiry" id = "inquiry" type="text" name = "inquiry" placeholder="Enter a location..." value="{{ inp }}">
+                <input class="submitButton" type="submit" value="Search">
+                </form>
+    
+            </div>
+            {% if name %}
+                <div class="card">
+                    <span id="name"> <strong>Name: </strong> {{name}}</span><br>
+                    <span id="address"><strong>Address: </strong>{{address}}</span><br>
+                    <span id="x_coordinates"><strong>X Coordinate: </strong> {{x}}</span><br>
+                    <span id="Y_coordinates"><strong>Y Coordinate:</strong> {{y}}</span><br>  
+                </div>
+                <form action="/add_data_to_db" type="GET">
+                    <input type="text" name="name" id="name" value="{{name}}">
+                    <input type="text" name="address" id="address" value="{{address}}">
+                    <input type="text" name="x" id="x" value="{{x}}">
+                    <input type="text" name="y" id="y" value="{{y}}">
+                    <input class="add" type="submit" value="Add Location To Database">
+                </form>
+            {% endif %}
+    
+            <style type="text/css">
+                input#name{
+                    display: none;
+                }
+                input#address{
+                    display:none;
+                }
+                input#x{
+                    display: none;
+                }
+                input#y{
+                    display: none;
+                }
+                
+            </style>
+            {% if Added %}
+                <p>Location has been added to the database.</p>
+            {% endif %}
+    
+            {% if notFound %}
+                <p>The location you entered could not be found. Please try again</p>
+            {% endif %}
+        </div>
+    </body>
+</html>
