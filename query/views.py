@@ -6,7 +6,6 @@ from .models import Location
 
 # Create your views here.
 def index(request):
-    ctx = {'inp': '', 'res': ''}
     return render(request, 'query/index.html', {'notFound':False, 'Added':False})
 
 
