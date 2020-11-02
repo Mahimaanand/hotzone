@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT hotzone_config.wsgi:application
+web: waitress-serve --port=$PORT hotzone.wsgi:application
